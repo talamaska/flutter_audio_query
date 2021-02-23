@@ -191,8 +191,13 @@ public class PlaylistLoader extends AbstractLoader {
 
         
         ContentResolver resolver = getContentResolver();
-        Uri playlistUri = MediaStore.Audio.Playlists.Members.getContentUri("external", Long.parseLong(playlistId));
-		String[] projection = new String[] { MediaStore.Audio.Playlists.Members.PLAY_ORDER };
+        Uri playlistUri = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.Q) {
+            playlistUri = MediaStore.Audio.Playlists.Members.getContentUri(MediaStore.VOLUME_EXTERNAL_PRIMARY, Long.parseLong(playlistId));
+        } else {
+            playlistUri = MediaStore.Audio.Playlists.Members.getContentUri("external", Long.parseLong(playlistId));
+        }
+        String[] projection = new String[] { MediaStore.Audio.Playlists.Members.PLAY_ORDER };
 
         Cursor cursor = resolver.query(playlistUri, projection, null, null, null);
 
@@ -200,6 +205,7 @@ public class PlaylistLoader extends AbstractLoader {
 		if (cursor.moveToLast())
 			base = cursor.getInt(0) + 1;
 		cursor.close();
+		Log.d("base", ""+base);
 
         try{
             ContentValues values = new ContentValues();
@@ -211,8 +217,7 @@ public class PlaylistLoader extends AbstractLoader {
         }
 
         catch (Exception e) {
-            Log.e(e.getMessage(),null);
-            results.error("Error adding song to playlist", "base value " + base,null);
+            Log.e("Exception",e.getMessage());
         }
     }
 

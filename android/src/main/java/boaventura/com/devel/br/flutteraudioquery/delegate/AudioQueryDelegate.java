@@ -154,15 +154,15 @@ public class AudioQueryDelegate implements PluginRegistry.RequestPermissionsResu
     @Override
     public void artistSourceHandler(MethodCall call, MethodChannel.Result result){
         if ( canIbeDependency(call, result) ){
-
-            if (m_permissionManager.isPermissionGranted(Manifest.permission.READ_EXTERNAL_STORAGE) ){
-                clearPendencies();
-                handleReadOnlyMethods(call, result);
-            }
-
-            else
-                m_permissionManager.askForPermission(Manifest.permission.READ_EXTERNAL_STORAGE,
-                        REQUEST_CODE_PERMISSION_READ_EXTERNAL);
+            clearPendencies();
+            handleReadOnlyMethods(call, result);
+//            if (m_permissionManager.isPermissionGranted(Manifest.permission.READ_EXTERNAL_STORAGE) ){
+//                clearPendencies();
+//                handleReadOnlyMethods(call, result);
+//            }
+//            else
+//                m_permissionManager.askForPermission(Manifest.permission.READ_EXTERNAL_STORAGE,
+//                        REQUEST_CODE_PERMISSION_READ_EXTERNAL);
 
         } else finishWithAlreadyActiveError(result);
 
@@ -177,14 +177,15 @@ public class AudioQueryDelegate implements PluginRegistry.RequestPermissionsResu
     @Override
     public void albumSourceHandler(MethodCall call, MethodChannel.Result result) {
         if ( canIbeDependency(call, result)){
-
-            if (m_permissionManager.isPermissionGranted(Manifest.permission.READ_EXTERNAL_STORAGE) ){
-                clearPendencies();
-                handleReadOnlyMethods(call, result);
-            }
-            else
-                m_permissionManager.askForPermission(Manifest.permission.READ_EXTERNAL_STORAGE,
-                        REQUEST_CODE_PERMISSION_READ_EXTERNAL);
+            clearPendencies();
+            handleReadOnlyMethods(call, result);
+//            if (m_permissionManager.isPermissionGranted(Manifest.permission.READ_EXTERNAL_STORAGE) ){
+//                clearPendencies();
+//                handleReadOnlyMethods(call, result);
+//            }
+//            else
+//                m_permissionManager.askForPermission(Manifest.permission.READ_EXTERNAL_STORAGE,
+//                        REQUEST_CODE_PERMISSION_READ_EXTERNAL);
         } else finishWithAlreadyActiveError(result);
     }
 
@@ -196,27 +197,29 @@ public class AudioQueryDelegate implements PluginRegistry.RequestPermissionsResu
     @Override
     public void songSourceHandler(MethodCall call, MethodChannel.Result result){
         if ( canIbeDependency(call, result)){
-
-            if (m_permissionManager.isPermissionGranted(Manifest.permission.READ_EXTERNAL_STORAGE) ){
-                clearPendencies();
-                handleReadOnlyMethods(call, result);
-            }
-            else
-                m_permissionManager.askForPermission(Manifest.permission.READ_EXTERNAL_STORAGE,
-                        REQUEST_CODE_PERMISSION_READ_EXTERNAL);
+            clearPendencies();
+            handleReadOnlyMethods(call, result);
+//            if (m_permissionManager.isPermissionGranted(Manifest.permission.READ_EXTERNAL_STORAGE) ){
+//                clearPendencies();
+//                handleReadOnlyMethods(call, result);
+//            }
+//            else
+//                m_permissionManager.askForPermission(Manifest.permission.READ_EXTERNAL_STORAGE,
+//                        REQUEST_CODE_PERMISSION_READ_EXTERNAL);
         } else finishWithAlreadyActiveError(result);
     }
 
     public void artworkSourceHandler(MethodCall call, MethodChannel.Result result){
         if ( canIbeDependency(call, result)){
-
-            if (m_permissionManager.isPermissionGranted(Manifest.permission.READ_EXTERNAL_STORAGE) ){
-                clearPendencies();
-                handleReadOnlyMethods(call, result);
-            }
-            else
-                m_permissionManager.askForPermission(Manifest.permission.READ_EXTERNAL_STORAGE,
-                        REQUEST_CODE_PERMISSION_READ_EXTERNAL);
+            clearPendencies();
+            handleReadOnlyMethods(call, result);
+//            if (m_permissionManager.isPermissionGranted(Manifest.permission.READ_EXTERNAL_STORAGE) ){
+//                clearPendencies();
+//                handleReadOnlyMethods(call, result);
+//            }
+//            else
+//                m_permissionManager.askForPermission(Manifest.permission.READ_EXTERNAL_STORAGE,
+//                        REQUEST_CODE_PERMISSION_READ_EXTERNAL);
         } else finishWithAlreadyActiveError(result);
     }
 
@@ -228,15 +231,15 @@ public class AudioQueryDelegate implements PluginRegistry.RequestPermissionsResu
     @Override
     public void genreSourceHandler(MethodCall call, MethodChannel.Result result){
         if ( canIbeDependency(call, result)){
-
-            if (m_permissionManager.isPermissionGranted(Manifest.permission.READ_EXTERNAL_STORAGE) ){
-                clearPendencies();
-                handleReadOnlyMethods(call, result);
-            }
-
-            else
-                m_permissionManager.askForPermission(Manifest.permission.READ_EXTERNAL_STORAGE,
-                        REQUEST_CODE_PERMISSION_READ_EXTERNAL);
+            clearPendencies();
+            handleReadOnlyMethods(call, result);
+//            if (m_permissionManager.isPermissionGranted(Manifest.permission.READ_EXTERNAL_STORAGE) ){
+//                clearPendencies();
+//                handleReadOnlyMethods(call, result);
+//            }
+//            else
+//                m_permissionManager.askForPermission(Manifest.permission.READ_EXTERNAL_STORAGE,
+//                        REQUEST_CODE_PERMISSION_READ_EXTERNAL);
         }
         else
             finishWithAlreadyActiveError(result);
@@ -255,7 +258,8 @@ public class AudioQueryDelegate implements PluginRegistry.RequestPermissionsResu
         switch (type){
             case READ:
                 if ( canIbeDependency(call, result)){
-
+//                    clearPendencies();
+//                    handleReadOnlyMethods(call, result);
                     if (m_permissionManager.isPermissionGranted(Manifest.permission.READ_EXTERNAL_STORAGE) ){
                         clearPendencies();
                         handleReadOnlyMethods(call, result);
@@ -268,7 +272,8 @@ public class AudioQueryDelegate implements PluginRegistry.RequestPermissionsResu
 
             case WRITE:
                 if ( canIbeDependency(call, result)){
-
+//                    clearPendencies();
+//                    handleWriteMethods(call, result);
                     if (m_permissionManager.isPermissionGranted(Manifest.permission.WRITE_EXTERNAL_STORAGE) ){
                         clearPendencies();
                         handleWriteMethods(call, result);
